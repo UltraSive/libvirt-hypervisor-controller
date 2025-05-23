@@ -1,53 +1,61 @@
-# Project libvirt-controller
+# Stateless Libvirt REST API Node Controller
 
-One Paragraph of project description goes here
+A lightweight, stateless Golang service exposing libvirt hypervisors over a simple REST API.  
+Great as a building block for custom cloud control-planes, auto-scaling clusters or edge-compute node agents.
 
-## Getting Started
+---
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Features
 
-## MakeFile
+- Stateless: no local database, all state lives in libvirt
+- Full libvirt domain lifecycle: define, start, stop, reboot, undefine
+- Snapshot management
+- Pluggable auth (e.g. Bearer token)e
 
-Run build make command with tests
+---
+
+## Prerequisites
+
+- Go 1.18+  
+- Libvirt (client libraries and daemon)  
+
+## Quick Start
+
 ```bash
-make all
-```
-
-Build the application
-```bash
+git clone [https://github.com/your-org/libvirt-rest-node.git](https://github.com/UltraSive/libvirt-hypervisor-controller.git)
+cd libvirt-hypervisor-controller
+chmod +x packages.sh
+./packages.sh
 make build
+
+# Set your libvirt URI (e.g. qemu:///system)
+export LIBVIRT_URI=qemu:///system
+# Optional: listening address (default :8080)
+export LISTEN_ADDR=:9090
+
+./main
 ```
 
-Run the application
-```bash
-make run
-```
-Create DB container
-```bash
-make docker-run
-```
+---
 
-Shutdown DB Container
-```bash
-make docker-down
-```
+## Configuration
 
-DB Integrations Test:
-```bash
-make itest
-```
+| ENV Variable  | Required | Default        | Description                             |
+|---------------|----------|----------------|-----------------------------------------|
+| LIBVIRT_URI   | false    | qemu:///system | libvirt connection URI (required)       |
+| PORT          | false    | 8080           | HTTP bind address                       |
+| AUTH_TOKEN    | false    | —              | Static bearer token for simple auth     |
+| CACHE_DIR     | false    | —              | Cache for VM image templates            |
+| CACHE_SECONDS | false    | —              | How long should VM images be cached     |
 
-Live reload the application:
-```bash
-make watch
-```
+---
 
-Run the test suite:
-```bash
-make test
-```
+## API Reference
 
-Clean up binary from the last build:
-```bash
-make clean
-```
+[Swagger OpenAPI Docs](https://ultrasive.github.io/hypervisor-api-docs)
+
+---
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
