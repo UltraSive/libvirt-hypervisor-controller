@@ -40,13 +40,14 @@ export LISTEN_ADDR=:9090
 
 ## Configuration
 
-| ENV Variable  | Required | Default        | Description                             |
-|---------------|----------|----------------|-----------------------------------------|
-| LIBVIRT_URI   | false    | qemu:///system | libvirt connection URI (required)       |
-| PORT          | false    | 8080           | HTTP bind address                       |
-| AUTH_TOKEN    | false    | —              | Static bearer token for simple auth     |
-| CACHE_DIR     | false    | —              | Cache for VM image templates            |
-| CACHE_SECONDS | false    | —              | How long should VM images be cached     |
+| ENV Variable     | Required | Default        | Description                             |
+|------------------|----------|----------------|-----------------------------------------|
+| LIBVIRT_URI      | false    | qemu:///system | libvirt connection URI (required)       |
+| PORT             | false    | 8080           | HTTP bind address                       |
+| AUTH_TOKEN       | false    | —              | Static bearer token for simple auth     |
+| WEBHOOK_ENDPOINT | false    | —              | HTTP endpoint for events                |
+| CACHE_DIR        | false    | —              | Cache for VM image templates            |
+| CACHE_SECONDS    | false    | —              | How long should VM images be cached     |
 
 ---
 
