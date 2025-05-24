@@ -57,6 +57,35 @@ export LISTEN_ADDR=:9090
 
 ---
 
+## Webhook Events
+When `WEBHOOK_ENDPOINT` is set, the controller will emit HTTP POST requests to the specified endpoint on major domain lifecycle changes. Each event contains the `domain_id` and `event_type`.
+
+### Event Payload Format
+
+```json
+{
+  "
+  "domain_id": "vm-123",
+  "event": "DOMAIN_STARTED",
+  "timestamp": "2024-05-23T18:25:43.511Z"
+}
+```
+
+### Event Types
+
+| Event Type                | Description                   |
+|---------------------------|-------------------------------|
+| `domain.defined`          | Domain was defined (created)  |
+| `domain.started`          | Domain was started            |
+| `domain.stopped`          | Domain was gracefully stopped |
+| `domain.shutdown`         | Domain shutdown was initiated |
+| `domain.rebooted`         | Domain was rebooted           |
+| `domain.undefined`        | Domain was deleted/undefined  |
+| `domain.snapshot_created` | A snapshot was created        |
+| `domain.snapshot_deleted` | A snapshot was deleted        |
+
+---
+
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
