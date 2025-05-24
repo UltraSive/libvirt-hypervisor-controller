@@ -67,7 +67,7 @@ When `WEBHOOK_ENDPOINT` is set, the controller will emit HTTP POST requests to t
   "object": "event",
   "domain_id": "vm-123",
   "type": "domain.defined",
-  "data: {},
+  "data": {},
   "timestamp": "2024-05-23T18:25:43.511Z"
 }
 ```
