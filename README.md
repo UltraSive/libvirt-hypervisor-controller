@@ -22,7 +22,7 @@ Great as a building block for custom cloud control-planes, auto-scaling clusters
 ## Quick Start
 
 ```bash
-git clone [https://github.com/your-org/libvirt-rest-node.git](https://github.com/UltraSive/libvirt-hypervisor-controller.git)
+git clone https://github.com/UltraSive/libvirt-hypervisor-controller.git
 cd libvirt-hypervisor-controller
 chmod +x packages.sh
 ./packages.sh
