@@ -42,6 +42,7 @@ export LISTEN_ADDR=:9090
 
 | ENV Variable     | Required | Default        | Description                             |
 |------------------|----------|----------------|-----------------------------------------|
+| NODE_ID          | false    | NODE_1         | The node ID for webhook events          |
 | LIBVIRT_URI      | false    | qemu:///system | libvirt connection URI (required)       |
 | PORT             | false    | 8080           | HTTP bind address                       |
 | AUTH_TOKEN       | false    | —              | Static bearer token for simple auth     |
@@ -65,6 +66,7 @@ When `WEBHOOK_ENDPOINT` is set, the controller will emit HTTP POST requests to t
 ```json
 {
   "object": "event",
+  "node_id": "NODE_1",
   "domain_id": "vm-123",
   "type": "domain.defined",
   "data": {},
